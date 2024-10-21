@@ -24,9 +24,9 @@ def index():
 
 
 
-@app.get("/time")
-def home():
-    return str(datetime.now())
+@app.get("/menu")
+def menu():
+    return f"{render_template("index.html")}"
 
 
 # @app.get @app.post @app.delete @app.put
