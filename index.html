@@ -7,23 +7,16 @@
     <title>ІтальяноУпаняно</title>
 </head>
 <body>
+{% include "base.html" %}
     <h1>Меню піц</h1>
     <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/18/27/a8/4f/pizza-vajnory.jpg?w=600&h=400&s=1" alt="">
 
-    <h2>Маргарита</h2>
-    <p>Інгредієнти: Томатний соус, сир моцарела</p>
-    <p>Ціна: 150 грн</p>
-    <hr>
-
-    <h2>Пепероні</h2>
-    <p>Інгредієнти: Томатний соус, сир моцарела, пепероні</p>
-    <p>Ціна: 180 грн</p>
-    <hr>
-
-    <h2>Гавайська</h2>
-    <p>Інгредієнти: Томатний соус, сир моцарела, шинка, ананас</p>
-    <p>Ціна: 200 грн</p>
-    <hr>
-
+    {% for pizza in pizzas %}
+        <h1>{{pizza.name}}</h1>
+        <p>{{pizza.ingredients}}</p>
+        <p>{{pizza.price}} грн</p>
+        <button onclick="addToCart('{{ pizza.name }}', {{ pizza.price }})">Замовити</button>
+        <hr>
+    {% endfor %}
 </body>
 </html>
